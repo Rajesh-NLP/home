@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dr. Rajesh Kumar Mundotiya - Assistant Professor at IIT Bhilai, specialized in Natural Language Processing, Deep Learning, and Speech Recognition">
+    <meta name="keywords" content="Rajesh Kumar Mundotiya, NLP, Deep Learning, IIT Bhilai, Machine Learning, AI, Speech Recognition">
+    <meta name="author" content="Dr. Rajesh Kumar Mundotiya">
+    <title>Dr. Rajesh Kumar Mundotiya - Publications</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
+    <!-- Three.js and Vanta.js for background -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="Styles.css">
+    <style>
+        /* Section navigation buttons */
+        .section-nav {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+            gap: 10px;
+        }
+        
+        .section-nav button {
+            background: none;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+            color: #555;
+        }
+        
+        .section-nav button:hover {
+            background-color: rgba(62, 130, 247, 0.1);
+            color: #3e82f7;
+        }
+        
+        .section-nav button.active {
+            background-color: #3e82f7;
+            color: white;
+        }
+        
+        /* Publication styles */
+        .publication-year-group {
+            margin-bottom: 30px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .publication-year-group h3 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #3e82f7;
+            display: inline-block;
+        }
+        
+        .publication-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .publication-item {
+            display: flex;
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .publication-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .publication-type {
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-align: center;
+            margin-right: 15px;
+            height: fit-content;
+            min-width: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .journal-item .publication-type {
+            background-color: #3e82f7; /* Blue */
+        }
+        
+        .conference-item .publication-type {
+            background-color: #16a34a; /* Green */
+        }
+        
+        .book-item .publication-type {
+            background-color: #d946ef; /* Purple */
+        }
+        
+        .publication-details {
+            flex: 1;
+        }
+        
+        .publication-details h4 {
+            margin: 0 0 10px 0;
+            color: #333;
+            font-size: 18px;
+        }
+        
+        .publication-details p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #555;
+        }
+        
+        .publication-details .authors {
+            font-size: 15.5px;
+            margin-bottom: 8px;
+            color: #444;
+        }
+        
+        .journal-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 8px 0;
+        }
+        
+        .journal-line p {
+            margin: 0;
+            flex-grow: 1;
+            min-width: 250px;
+            font-size: 15px;
+        }
+        
+        .journal-line p em {
+            font-weight: 500;
+        }
+        
+        .right-metadata {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+        }
+        
+        .impact-factor {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background-color: #f9f0ff;
+            color: #9333ea;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 12.5px;
+        }
+        
+        .indexing {
+            display: inline-flex;
+            align-items: center;
+            background-color: #f0f7ff;
+            color: #2563eb;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 12.5px;
+        }
+        
+        .pub-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 12.5px;
+            color: #555;
+            text-decoration: none;
+            transition: all 0.2s;
+            border: 1px solid #ddd;
+        }
+        
+        .pub-link:hover {
+            background-color: #f5f5f5;
+            color: #3e82f7;
+            border-color: #3e82f7;
+        }
+        
+        /* Responsive adjustments */
+        @media screen and (max-width: 576px) {
+            .section-nav {
+                margin: 10px 0;
+                flex-wrap: wrap;
+            }
+            
+            .section-nav button {
+                padding: 6px 12px;
+                font-size: 14px;
+                margin-bottom: 5px;
+            }
+            
+            .publication-year-group {
+                padding: 15px;
+            }
+            
+            .publication-item {
+                flex-direction: column;
+            }
+            
+            .publication-type {
+                margin-right: 0;
+                margin-bottom: 10px;
+                align-self: flex-start;
+            }
+            
+            .journal-line {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            
+            .journal-line p {
+                min-width: 100%;
+            }
+            
+            .right-metadata {
+                width: 100%;
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Globe background container -->
+    <div id="particles-js"></div>
+    
+    <div class="container">
+        <div class="info-panel" data-aos="fade-right" data-aos-duration="800">
+            <div class="name-container">
+                <h2><span class="title">Dr.</span> <span class="first-name">Rajesh</span> <span class="middle-name">Kumar</span> <span class="last-name">Mundotiya</span></h2>
+            </div>
+            <div class="profile-container">
+                <img src="img/Rajesh.jpg" alt="Dr. Rajesh Kumar Mundotiya" class="profile-image" data-aos="zoom-in" data-aos-delay="300">
+                <div class="profile-info">
+                    <h3><i class="fas fa-user-tie"></i> Assistant Professor</h3>
+                    <h3><i class="fas fa-university"></i> CSE, IIT Bhilai</h3>
+                    <p><a href="mailto:rmundotiya@iitbhilai.ac.in"><i class="fas fa-envelope"></i> rmundotiya@iitbhilai.ac.in</a></p>
+                </div>
+            </div>
+            <div class="logos" data-aos="fade-up" data-aos-delay="400">
+                <a href="https://www.researchgate.net/scientific-contributions/Rajesh-Kumar-Mundotiya-2246596670" target="_blank" title="ResearchGate Profile">
+                    <img src="img/RG.png" alt="ResearchGate">
+                </a>
+                <a href="https://www.scopus.com/authid/detail.uri?authorId=57197759279" target="_blank" title="Scopus Profile">
+                    <img src="img/Scopus.jpg" alt="Scopus">
+                </a>
+                <a href="https://orcid.org/0000-0002-0096-2440" target="_blank" title="ORCID Profile">
+                    <img src="img/ORCID.png" alt="Orcid">
+                </a>
+                <a href="https://scholar.google.com/citations?user=jp3MgBAAAAAJ&hl=en" target="_blank" title="Google Scholar Profile">
+                    <img src="img/GS.png" alt="Google Scholar">
+                </a>
+            </div>
+            <div class="contact-info" data-aos="fade-up" data-aos-delay="500">
+                <p><i class="fas fa-building"></i> Department of Computer Science & Engineering, Indian Institute of Technology Bhilai, India</p>
+                <p><i class="fas fa-map-marker-alt"></i> 404-B, Agastya Building (ED1), IIT Bhilai, Chhattisgarh - 491002, India</p>
+            </div>
+        </div>
+
+        <div class="content-panel" id="content" data-aos="fade-left" data-aos-duration="800">
+            <div class="navbar">
+                <div class="navlinks">
+                    <a href="index.html" class="navlink" id="aboutBtn">
+                        <i class="fas fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    <a href="academia.html" class="navlink" id="academicJourneyBtn">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Academia</span>
+                    </a>
+                    <a href="publications.html" class="navlink" id="publicationsBtn">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Publications</span>
+                    </a>
+                    <a href="projects.html" class="navlink" id="projectsBtn">
+                        <i class="fas fa-code-branch"></i>
+                        <span>Projects</span>
+                    </a>
+                    <a href="group.html" class="navlink" id="groupBtn">
+                        <i class="fas fa-users"></i>
+                        <span>Research Group</span>
+                    </a>
+                    <a href="activities.html" class="navlink" id="activitiesBtn">
+                        <i class="fas fa-tasks"></i>
+                        <span>Activities</span>
+                    </a>
+                    <a href="intern.html" class="navlink" id="opportunitiesBtn">
+                        <i class="fas fa-handshake"></i>
+                        <span>Opportunities</span>
+                    </a>
+                </div>
+                <!-- Mobile nav button -->
+                <button class="mobile-nav-toggle" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <div class="section" id="publications">
+                <div class="section-content">
+                    
+                    <div class="section-nav">
+                        <button id="all-btn" class="active">All Papers</button>
+                        <button id="journal-btn">Journals</button>
+                        <button id="conference-btn">Conferences</button>
+                    </div>
+
+                    <div class="publications-container">
+                        <div class="publication-year-group" data-aos="fade-up">
+                            <h3><i class="fas fa-calendar-alt"></i> 2025</h3>
+                            <div class="publication-list">
+                                <div class="publication-item journal-item" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="publication-type">Journal</div>
+                                    <div class="publication-details">
+                                        <h4>Sarcasm Identification and Classification in Hindi Newspaper Headlines</h4>
+                                        <p class="authors">Ahmad, I. A., Gatla, P., & <strong>Mundotiya, R. K.</strong></p>
+                                        <div class="journal-line">
+                                            <p class="journal"><em>ACM Transactions on Asian and Low-Resource Language Information Processing</em></p>
+                                            <div class="right-metadata">
+                                                <span class="impact-factor" title="Impact Factor"><i class="fas fa-chart-line"></i> IF: 1.413</span>
+                                                <span class="indexing" title="Indexing">SCI</span>
+                                                <a href="https://doi.org/10.1145/3714469" class="pub-link" title="View Online"><i class="fas fa-external-link-alt"></i> Link</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="publication-year-group" data-aos="fade-up">
+                            <h3><i class="fas fa-calendar-alt"></i> 2024</h3>
+                            <div class="publication-list">
+                                <div class="publication-item journal-item" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="publication-type">Journal</div>
+                                    <div class="publication-details">
+                                        <h4>Enhancing Generalizability in Biomedical Entity Recognition: Self-Attention PCA-CLS Model</h4>
+                                        <p class="authors"><strong>Mundotiya, R. K.</strong>, Priya, J., Kuwarbi, D., & Singh, T.</p>
+                                        <div class="journal-line">
+                                            <p class="journal"><em>IEEE/ACM Transactions on Computational Biology and Bioinformatics</em></p>
+                                            <div class="right-metadata">
+                                                <span class="impact-factor" title="Impact Factor"><i class="fas fa-chart-line"></i> IF: 3.6</span>
+                                                <span class="indexing" title="Indexing">SCI</span>
+                                                <a href="https://doi.org/10.1109/TCBB.2024.3429234" class="pub-link" title="View Online"><i class="fas fa-external-link-alt"></i> Link</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="publication-year-group" data-aos="fade-up" data-aos-delay="150">
+                            <h3><i class="fas fa-calendar-alt"></i> 2023</h3>
+                            <div class="publication-list">
+                                <div class="publication-item journal-item" data-aos="fade-up" data-aos-delay="200">
+                                    <div class="publication-type">Journal</div>
+                                    <div class="publication-details">
+                                        <h4>A Hybrid Solution for Secure Privacy-Preserving Cloud Storage & Information Retrieval</h4>
+                                        <p class="authors">Kumar, A., Aljrees, T., Hsieh, S. Y., Singh, K. U., Singh, T., Raja, L., ... & <strong>Mundotiya, R. K.</strong></p>
+                                        <div class="journal-line">
+                                            <p class="journal"><em>Human-centric Computing and Information Sciences</em>, 13(11)</p>
+                                            <div class="right-metadata">
+                                                <span class="impact-factor" title="Impact Factor"><i class="fas fa-chart-line"></i> IF: 6.558</span>
+                                                <span class="indexing" title="Indexing">SCI</span>
+                                                <a href="https://doi.org/10.22967/HCIS.2023.13.011" class="pub-link" title="View Online"><i class="fas fa-external-link-alt"></i> Link</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="publication-item conference-item" data-aos="fade-up" data-aos-delay="250">
+                                    <div class="publication-type">Conference</div>
+                                    <div class="publication-details">
+                                        <h4>Deep Learning-Based Similar Languages' POS Tagging: Experiments on Bhojpuri, Maithili, and Magahi</h4>
+                                        <p class="authors"><strong>Mundotiya, R. K.</strong>, Gatla, P., Kanwar, N., & Singh A. K.</p>
+                                        <div class="journal-line">
+                                            <p class="conference"><em>Soft Computing: Theories and Applications</em>. Lecture Notes in Networks and Systems, vol 627. Springer, Singapore.</p>
+                                            <div class="right-metadata">
+                                                <span class="indexing" title="Indexing">Scopus</span>
+                                                <a href="https://doi.org/10.1007/978-981-19-9858-4%5F72" class="pub-link" title="View Online"><i class="fas fa-external-link-alt"></i> DOI</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="publication-item conference-item" data-aos="fade-up" data-aos-delay="300">
+                                    <div class="publication-type">Conference</div>
+                                    <div class="publication-details">
+                                        <h4>Experiments on Deep Morphological Inflection</h4>
+                                        <p class="authors">Sudhakar, A., <strong>Mundotiya, R. K.</strong>, & Singh, A. K.</p>
+                                        <div class="journal-line">
+                                            <p class="conference"><em>Computational Linguistics and Intelligent Text Processing: 19th International Conference, CICLing 2018</em>, Hanoi, Vietnam, March 18-24, 2018, Revised Selected Papers, Part I (pp. 382-398). Cham: Springer Nature Switzerland.</p>
+                                            <div class="right-metadata">
+                                                <span class="indexing" title="Indexing">Scopus</span>
+                                                <a href="https://doi.org/10.1007/978-3-031-23793-5%5F31" class="pub-link" title="View Online"><i class="fas fa-external-link-alt"></i> DOI</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="publication-year-group" data-aos="fade-up" data-aos-delay="350">
+                            <h3><i class="fas fa-calendar-alt"></i> 2022</h3>
+                            <div class="publication-list">
+                                <div class="publication-item journal-item" data-aos="fade-up" data-aos-delay="400">
+                                    <div class="publication-type">Journal</div>
+                                    <div class="publication-details">
+                                        <h4>Hierarchical self attention based sequential labelling model for Bhojpuri, Maithili and Magahi languages</h4>
+                                        <p class="authors"><strong>Mundotiya, R. K.</strong>, Mishra, S., & Singh, A. K.</p>
+                                        <div class="journal-line">
+                                            <p class="journal"><em>Journal of King Saud University - Computer and Information Sciences</em>, 34(10), 8739-8749</p>
+                                            <div class="right-metadata">
+                                                <span class="impact-factor" title="Impact Factor"><i class="fas fa-chart-line"></i> IF: 13.473</span>
+                                                <span class="indexing" title="Indexing">SCI</span>
+                                                <a href="https://doi.org/10.1016/j.jksuci.2021.09.022" class="pub-link" title="View Online"><i class="fas fa-external-link-alt"></i> Link</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="publication-item journal-item" data-aos="fade-up" data-aos-delay="450">
+                                    <div class="publication-type">Journal</div>
+                                    <div class="publication-details">
+                                        <h4>Domain adaptation for pos tagging with contrastive monotonic chunk-wise attention</h4>
+                                        <p class="authors"><strong>Mundotiya, R. K.</strong>, Mehta, A., & Baruah, R.</p>
+                                        <div class="journal-line">
+                                            <p class="journal"><em>Neural Processing Letters</em>, 54(4), 2901-2918</p>
+                                            <div class="right-metadata">
+                                                <span class="impact-factor" title="Impact Factor"><i class="fas fa-chart-line"></i> IF: 2.565</span>
+                                                <span class="indexing" title="Indexing">SCI</span>
+                                                <a href="https://doi.org/10.1007/s11063-022-10746-4" class="pub-link" title="View Online"><i class="fas fa-external-link-alt"></i> Link</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="publication-item journal-item" data-aos="fade-up" data-aos-delay="500">
+                                    <div class="publication-type">Journal</div>
+                                    <div class="publication-details">
+                                        <h4>TLSPG: Transfer learning-based semi-supervised pseudo-corpus generation approach for zero-shot translation</h4>
+                                        <p class="authors">Kumar, A., <strong>Mundotiya, R. K.</strong>, Pratap, A., & Singh, A. K.</p>
+                                        <div class="journal-line">
+                                            <p class="journal"><em>Journal of King Saud University - Computer and Information Sciences</em>, 34(9)</p>
+                                            <div class="right-metadata">
+                                                <span class="impact-factor" title="Impact Factor"><i class="fas fa-chart-line"></i> IF: 13.473</span>
+                                                <span class="indexing" title="Indexing">SCI</span>
+                                                <a href="https://doi.org/10.1016/j.jksuci.2022.03.008" class="pub-link" title="View Online"><i class="fas fa-external-link-alt"></i> Link</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="publication-item journal-item" data-aos="fade-up" data-aos-delay="550">
+                                    <div class="publication-type">Journal</div>
+                                    <div class="publication-details">
+                                        <h4>Integration of morphological features and contextual weightage using monotonic chunk attention for part of speech tagging</h4>
+                                        <p class="authors"><strong>Mundotiya, R. K.</strong>, Mehta, A., Baruah, R., & Singh, A. K.</p>
+                                        <div class="journal-line">
+                                            <p class="journal"><em>Journal of King Saud University - Computer and Information Sciences</em>, 34(9), 7324-7334</p>
+                                            <div class="right-metadata">
+                                                <span class="impact-factor" title="Impact Factor"><i class="fas fa-chart-line"></i> IF: 13.473</span>
+                                                <span class="indexing" title="Indexing">SCI</span>
+                                                <a href="https://doi.org/10.1016/j.jksuci.2021.08.023" class="pub-link" title="View Online"><i class="fas fa-external-link-alt"></i> Link</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="publication-item journal-item" data-aos="fade-up" data-aos-delay="600">
+                                    <div class="publication-type">Journal</div>
+                                    <div class="publication-details">
+                                        <h4>Development of a Dataset and a Deep Learning Baseline Named Entity Recognizer for Three Low Resource Languages: Bhojpuri, Maithili and Magahi</h4>
+                                        <p class="authors"><strong>Mundotiya, R. K.</strong>, Kumar, S., Kumar, A., Chaudhary, U. C., Chauhan, S., Mishra, S., ... & Singh, A. K.</p>
+                                        <div class="journal-line">
+                                            <p class="journal"><em>Transactions on Asian and Low-Resource Language Information Processing</em></p>
+                                            <div class="right-metadata">
+                                                <span class="impact-factor" title="Impact Factor"><i class="fas fa-chart-line"></i> IF: 1.413</span>
+                                                <span class="indexing" title="Indexing">SCI</span>
+                                                <a href="https://doi.org/10.1145/3533428" class="pub-link" title="View Online"><i class="fas fa-external-link-alt"></i> Link</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="publication-year-group" data-aos="fade-up" data-aos-delay="650">
+                            <h3><i class="fas fa-calendar-alt"></i> 2021</h3>
+                            <div class="publication-list">
+                                <div class="publication-item journal-item" data-aos="fade-up" data-aos-delay="700">
+                                    <div class="publication-type">Journal</div>
+                                    <div class="publication-details">
+                                        <h4>Low resource neural machine translation: Assamese to/from other Indo-Aryan (Indic) languages</h4>
+                                        <p class="authors">Baruah, R., <strong>Mundotiya, R. K.</strong>, & Singh, A. K.</p>
+                                        <div class="journal-line">
+                                            <p class="journal"><em>Transactions on Asian and Low-Resource Language Information Processing</em>, 21(1), 1-32</p>
+                                            <div class="right-metadata">
+                                                <span class="impact-factor" title="Impact Factor"><i class="fas fa-chart-line"></i> IF: 1.413</span>
+                                                <span class="indexing" title="Indexing">SCI</span>
+                                                <a href="https://doi.org/10.1145/3469721" class="pub-link" title="View Online"><i class="fas fa-external-link-alt"></i> Link</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="publication-item journal-item" data-aos="fade-up" data-aos-delay="750">
+                                    <div class="publication-type">Journal</div>
+                                    <div class="publication-details">
+                                        <h4>Forward context-aware clickbait tweet identification system</h4>
+                                        <p class="authors"><strong>Mundotiya, R. K.</strong>, & Yadav, N.</p>
+                                        <div class="journal-line">
+                                            <p class="journal"><em>International Journal of Ambient Computing and Intelligence (IJACI)</em>, 12(2), 21-32</p>
+                                            <div class="right-metadata">
+                                                <span class="indexing" title="Indexing">Scopus</span>
+                                                <a href="https://doi.org/10.4018/IJACI.2021040102" class="pub-link" title="View Online"><i class="fas fa-external-link-alt"></i> Link</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="publication-item journal-item" data-aos="fade-up" data-aos-delay="800">
+                                    <div class="publication-type">Journal</div>
+                                    <div class="publication-details">
+                                        <h4>Tag-based Personalized Collaborative Movie Recommender System</h4>
+                                        <p class="authors">Yadav, N., <strong>Mundotiya, R. K.</strong>, & Singh, A. K.</p>
+                                        <div class="journal-line">
+                                            <p class="journal"><em>Journal of Information Assurance & Security</em>, 16(1)</p>
+                                            <div class="right-metadata">
+                                                <span class="indexing" title="Indexing">Scopus</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="publication-item conference-item" data-aos="fade-up" data-aos-delay="850">
+                                    <div class="publication-type">Conference</div>
+                                    <div class="publication-details">
+                                        <h4>Diversity in recommendation system: A cluster based approach</h4>
+                                        <p class="authors">Yadav, N., <strong>Mundotiya, R. K.</strong>, Singh, A. K., & Pal, S.</p>
+                                        <div class="journal-line">
+                                            <p class="conference"><em>Hybrid Intelligent Systems: 19th International Conference on Hybrid Intelligent Systems (HIS 2019)</em> held in Bhopal, India, December 10-12, 2019 (pp. 113-122). Springer International Publishing.</p>
+                                            <div class="right-metadata">
+                                                <span class="indexing" title="Indexing">Scopus</span>
+                                                <a href="https://doi.org/10.1007/978-3-030-49336-3_12" class="pub-link" title="View Online"><i class="fas fa-external-link-alt"></i> DOI</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="publication-year-group" data-aos="fade-up" data-aos-delay="900">
+                            <h3><i class="fas fa-calendar-alt"></i> 2020</h3>
+                            <div class="publication-list">
+                                <div class="publication-item conference-item" data-aos="fade-up" data-aos-delay="950">
+                                    <div class="publication-type">Conference</div>
+                                    <div class="publication-details">
+                                        <h4>NLPRL Odia-English: Indic Language Neural Machine Translation System</h4>
+                                        <p class="authors">Baruah, R., & <strong>Mundotiya, R. K.</strong></p>
+                                        <div class="journal-line">
+                                            <p class="conference"><em>Proceedings of the 7th Workshop on Asian Translation</em> (pp. 118-121)</p>
+                                            <div class="right-metadata">
+                                                <span class="indexing" title="Indexing">Scopus</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="publication-item conference-item" data-aos="fade-up" data-aos-delay="1000">
+                                    <div class="publication-type">Conference</div>
+                                    <div class="publication-details">
+                                        <h4>Unsupervised approach for zero-shot experiments: Bhojpuri-Hindi and Magahi–Hindi@ LoResMT 2020</h4>
+                                        <p class="authors">Kumar, A., <strong>Mundotiya, R. K.</strong>, & Singh, A. K.</p>
+                                        <div class="journal-line">
+                                            <p class="conference"><em>Proceedings of the 3rd Workshop on Technologies for MT of Low Resource Languages</em> (pp. 43-46)</p>
+                                            <div class="right-metadata">
+                                                <span class="indexing" title="Indexing">Scopus</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="publication-item conference-item" data-aos="fade-up" data-aos-delay="1050">
+                                    <div class="publication-type">Conference</div>
+                                    <div class="publication-details">
+                                        <h4>Transformer-based neural machine translation system for Hindi–Marathi: WMT20 shared task</h4>
+                                        <p class="authors">Kumar, A., Baruah, R., <strong>Mundotiya, R. K.</strong>, & Singh, A. K.</p>
+                                        <div class="journal-line">
+                                            <p class="conference"><em>Proceedings of the Fifth Conference on Machine Translation</em> (pp. 393-395)</p>
+                                            <div class="right-metadata">
+                                                <span class="indexing" title="Indexing">Scopus</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="publication-item conference-item" data-aos="fade-up" data-aos-delay="1100">
+                                    <div class="publication-type">Conference</div>
+                                    <div class="publication-details">
+                                        <h4>NLPRL system for very low resource supervised machine translation</h4>
+                                        <p class="authors">Baruah, R., <strong>Mundotiya, R. K.</strong>, Kumar, A., & Singh, A. K.</p>
+                                        <div class="journal-line">
+                                            <p class="conference"><em>Proceedings of the Fifth Conference on Machine Translation</em> (pp. 1075-1078)</p>
+                                            <div class="right-metadata">
+                                                <span class="indexing" title="Indexing">Scopus</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="publication-item conference-item" data-aos="fade-up" data-aos-delay="1150">
+                                    <div class="publication-type">Conference</div>
+                                    <div class="publication-details">
+                                        <h4>NLPRL at WNUT-2020 Task 2: ELMo-based system for identification of COVID-19 tweets</h4>
+                                        <p class="authors"><strong>Mundotiya, R. K.</strong>, Baruah, R., Srivastava, B., & Singh, A. K.</p>
+                                        <div class="journal-line">
+                                            <p class="conference"><em>Proceedings of the Sixth Workshop on Noisy User-generated Text (W-NUT 2020)</em> (pp. 419-422)</p>
+                                            <div class="right-metadata">
+                                                <span class="indexing" title="Indexing">Scopus</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="publication-item conference-item" data-aos="fade-up" data-aos-delay="1200">
+                                    <div class="publication-type">Conference</div>
+                                    <div class="publication-details">
+                                        <h4>Attention-based domain adaptation using transfer learning for part-of-speech tagging: an experiment on the Hindi language</h4>
+                                        <p class="authors"><strong>Mundotiya, R. K.</strong>, Kumar, V., Mehta, A., & Singh, A. K.</p>
+                                        <div class="journal-line">
+                                            <p class="conference"><em>Proceedings of the 34th Pacific Asia Conference on Language, Information and Computation</em> (pp. 471-477)</p>
+                                            <div class="right-metadata">
+                                                <span class="indexing" title="Indexing">Scopus</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="publication-item conference-item" data-aos="fade-up" data-aos-delay="1250">
+                                    <div class="publication-type">Conference</div>
+                                    <div class="publication-details">
+                                        <h4>PITS@ Dravidian-CodeMix-FIRE2020: Traditional Approach to Noisy Code-Mixed Sentiment Analysis</h4>
+                                        <p class="authors">Kanwar, N., Agarwal, M., & <strong>Mundotiya, R. K.</strong></p>
+                                        <div class="journal-line">
+                                            <p class="conference"><em>FIRE (Working Notes)</em> (pp. 541-547)</p>
+                                            <div class="right-metadata">
+                                                <span class="indexing" title="Indexing">Scopus</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="publication-year-group" data-aos="fade-up" data-aos-delay="1300">
+                            <h3><i class="fas fa-calendar-alt"></i> 2019</h3>
+                            <div class="publication-list">
+                                <div class="publication-item conference-item" data-aos="fade-up" data-aos-delay="1350">
+                                    <div class="publication-type">Conference</div>
+                                    <div class="publication-details">
+                                        <h4>Emotion-based voted classifier for Arabic irony tweet identification</h4>
+                                        <p class="authors">Kanwar, N., <strong>Mundotiya, R. K.</strong>, Agarwal, M., & Singh, C.</p>
+                                        <div class="journal-line">
+                                            <p class="conference"><em>FIRE (Working Notes)</em> (pp. 426-432)</p>
+                                            <div class="right-metadata">
+                                                <span class="indexing" title="Indexing">Scopus</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="publication-item conference-item" data-aos="fade-up" data-aos-delay="1400">
+                                    <div class="publication-type">Conference</div>
+                                    <div class="publication-details">
+                                        <h4>IRLab@ IITBHU at HASOC 2019: Traditional Machine Learning for Hate Speech and Offensive Content Identification</h4>
+                                        <p class="authors">Saroj, A., <strong>Mundotiya, R. K.</strong>, & Pal, S.</p>
+                                        <div class="journal-line">
+                                            <p class="conference"><em>FIRE (Working Notes)</em> (pp. 308-314)</p>
+                                            <div class="right-metadata">
+                                                <span class="indexing" title="Indexing">Scopus</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="publication-year-group" data-aos="fade-up" data-aos-delay="1450">
+                            <h3><i class="fas fa-calendar-alt"></i> 2018</h3>
+                            <div class="publication-list">
+                                <div class="publication-item conference-item" data-aos="fade-up" data-aos-delay="1500">
+                                    <div class="publication-type">Conference</div>
+                                    <div class="publication-details">
+                                        <h4>NLPRL@ INLI-2018: Hybrid gated LSTM-CNN model for Indian Native Language Identification</h4>
+                                        <p class="authors"><strong>Mundotiya, R. K.</strong>, Singh, M. K., & Singh, A. K.</p>
+                                        <div class="journal-line">
+                                            <p class="conference"><em>FIRE (Working Notes)</em> (pp. 95-101)</p>
+                                            <div class="right-metadata">
+                                                <span class="indexing" title="Indexing">Scopus</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="publication-item conference-item" data-aos="fade-up" data-aos-delay="1550">
+                                    <div class="publication-type">Conference</div>
+                                    <div class="publication-details">
+                                        <h4>IIT (BHU)@ IECSIL-FIRE2018: Language Independent Automatic Framework for Entity Extraction in Indian Languages</h4>
+                                        <p class="authors">Mishra, A., <strong>Mundotiya, R. K.</strong>, & Pal, S.</p>
+                                        <div class="journal-line">
+                                            <p class="conference"><em>FIRE (Working Notes)</em> (pp. 145-152)</p>
+                                            <div class="right-metadata">
+                                                <span class="indexing" title="Indexing">Scopus</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="publication-item conference-item" data-aos="fade-up" data-aos-delay="1600">
+                                    <div class="publication-type">Conference</div>
+                                    <div class="publication-details">
+                                        <h4>Rule-based Event Extraction System from Newswires and Social Media Text in Indian Languages (EventXtract-IL) for English and Hindi Data</h4>
+                                        <p class="authors">Saroj, A., <strong>Mundotiya, R. K.</strong>, & Pal, S.</p>
+                                        <div class="journal-line">
+                                            <p class="conference"><em>FIRE (Working Notes)</em> (pp. 302-307)</p>
+                                            <div class="right-metadata">
+                                                <span class="indexing" title="Indexing">Scopus</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="publication-year-group" data-aos="fade-up" data-aos-delay="1650">
+                            <h3><i class="fas fa-calendar-alt"></i> 2017</h3>
+                            <div class="publication-list">
+                                <div class="publication-item conference-item" data-aos="fade-up" data-aos-delay="1700">
+                                    <div class="publication-type">Conference</div>
+                                    <div class="publication-details">
+                                        <h4>Evaluating opinion summarization in ranking</h4>
+                                        <p class="authors">Singh, A. K., Thawani, A., Gupta, A., & <strong>Mundotiya, R. K.</strong></p>
+                                        <div class="journal-line">
+                                            <p class="conference"><em>Information Retrieval Technology: 13th Asia Information Retrieval Societies Conference, AIRS 2017</em>, Jeju Island, South Korea, November 22-24, 2017, Proceedings (pp. 222-234). Springer International Publishing.</p>
+                                            <div class="right-metadata">
+                                                <span class="indexing" title="Indexing">Scopus</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="copyright">
+                <p>&copy; 2024 Dr. Rajesh Kumar Mundotiya. All Rights Reserved.</p>
+            </div>
+            <div class="social-links">
+                <a href="mailto:rmundotiya@iitbhilai.ac.in" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.researchgate.net/scientific-contributions/Rajesh-Kumar-Mundotiya-2246596670" target="_blank" title="ResearchGate"><i class="fab fa-researchgate"></i></a>
+                <a href="https://scholar.google.com/citations?user=jp3MgBAAAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                once: true,
+                mirror: false,
+                anchorPlacement: 'top-bottom'
+            });
+            
+            // Publication filter functionality
+            const allBtn = document.getElementById('all-btn');
+            const journalBtn = document.getElementById('journal-btn');
+            const conferenceBtn = document.getElementById('conference-btn');
+            
+            const journalItems = document.querySelectorAll('.journal-item');
+            const conferenceItems = document.querySelectorAll('.conference-item');
+            
+            // Show all items by default
+            function showAllItems() {
+                journalItems.forEach(item => item.style.display = 'flex');
+                conferenceItems.forEach(item => item.style.display = 'flex');
+                
+                // Restore original publication type labels
+                journalItems.forEach(item => {
+                    item.querySelector('.publication-type').textContent = 'Journal';
+                });
+                conferenceItems.forEach(item => {
+                    item.querySelector('.publication-type').textContent = 'Conference';
+                });
+                
+                // Show all year groups
+                document.querySelectorAll('.publication-year-group').forEach(group => {
+                    group.style.display = 'block';
+                    
+                    // If group has no visible items, hide it
+                    if (group.querySelectorAll('.publication-item[style="display: flex;"]').length === 0) {
+                        group.style.display = 'none';
+                    }
+                });
+            }
+            
+            // Filter button event listeners
+            allBtn.addEventListener('click', function() {
+                this.classList.add('active');
+                journalBtn.classList.remove('active');
+                conferenceBtn.classList.remove('active');
+                
+                showAllItems();
+                
+                // Refresh AOS animations
+                AOS.refresh();
+            });
+            
+            journalBtn.addEventListener('click', function() {
+                this.classList.add('active');
+                allBtn.classList.remove('active');
+                conferenceBtn.classList.remove('active');
+                
+                journalItems.forEach(item => item.style.display = 'flex');
+                conferenceItems.forEach(item => item.style.display = 'none');
+                
+                // Number the journal items sequentially
+                let counter = 1;
+                document.querySelectorAll('.publication-year-group').forEach(group => {
+                    const visibleJournals = group.querySelectorAll('.journal-item');
+                    if (visibleJournals.length > 0) {
+                        group.style.display = 'block';
+                        visibleJournals.forEach(item => {
+                            item.querySelector('.publication-type').textContent = counter++;
+                        });
+                    } else {
+                        group.style.display = 'none';
+                    }
+                });
+                
+                // Refresh AOS animations
+                AOS.refresh();
+            });
+            
+            conferenceBtn.addEventListener('click', function() {
+                this.classList.add('active');
+                allBtn.classList.remove('active');
+                journalBtn.classList.remove('active');
+                
+                journalItems.forEach(item => item.style.display = 'none');
+                conferenceItems.forEach(item => item.style.display = 'flex');
+                
+                // Number the conference items sequentially
+                let counter = 1;
+                document.querySelectorAll('.publication-year-group').forEach(group => {
+                    const visibleConferences = group.querySelectorAll('.conference-item');
+                    if (visibleConferences.length > 0) {
+                        group.style.display = 'block';
+                        visibleConferences.forEach(item => {
+                            item.querySelector('.publication-type').textContent = counter++;
+                        });
+                    } else {
+                        group.style.display = 'none';
+                    }
+                });
+                
+                // Refresh AOS animations
+                AOS.refresh();
+            });
+            
+            // Initial setup - show all items
+            showAllItems();
+            
+            // Globe background effect
+            if (typeof VANTA !== 'undefined') {
+                VANTA.GLOBE({
+                    el: "#particles-js",
+                    mouseControls: true,
+                    touchControls: true,
+                    gyroControls: false,
+                    minHeight: 200.00,
+                    minWidth: 200.00,
+                    scale: 1.00,
+                    scaleMobile: 1.00,
+                    color: 0x3e82f7,
+                    backgroundColor: 0xffffff,
+                    size: 0.70,
+                    speed: 0.3
+                });
+            }
+            
+            // Highlight active page in navigation
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            document.querySelectorAll('.navlink').forEach(link => {
+                const linkHref = link.getAttribute('href');
+                if (linkHref === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Mobile navigation toggle
+            const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+            const navLinksContainer = document.querySelector('.navlinks');
+            
+            mobileNavToggle.addEventListener('click', function() {
+                navLinksContainer.classList.toggle('active');
+                const isExpanded = navLinksContainer.classList.contains('active');
+                mobileNavToggle.setAttribute('aria-expanded', isExpanded);
+                
+                // Change icon based on state
+                if (isExpanded) {
+                    mobileNavToggle.innerHTML = '<i class="fas fa-times"></i>';
+                } else {
+                    mobileNavToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+            
+            // Close mobile menu when a link is clicked
+            document.querySelectorAll('.navlinks .navlink').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinksContainer.classList.remove('active');
+                    mobileNavToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                    mobileNavToggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+            
+            // Add a scroll to top button
+            const scrollBtn = document.createElement('button');
+            scrollBtn.classList.add('scroll-top-btn');
+            scrollBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+            document.body.appendChild(scrollBtn);
+            
+            scrollBtn.addEventListener('click', function() {
+                const contentPanel = document.getElementById('content');
+                if (contentPanel) {
+                    contentPanel.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+            
+            // Show/hide scroll button based on scroll position
+            const contentPanel = document.getElementById('content');
+            if (contentPanel) {
+                contentPanel.addEventListener('scroll', function() {
+                    if (this.scrollTop > 300) {
+                        scrollBtn.style.display = 'block';
+                    } else {
+                        scrollBtn.style.display = 'none';
+                    }
+                });
+            }
+        });
+    </script>
+    <!-- Load particles.js for the background animation -->
+    <script src="particles.js"></script>
+</body>
+</html>
